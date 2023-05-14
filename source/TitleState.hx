@@ -85,6 +85,10 @@ class TitleState extends MusicBeatState
 	{
 		Paths.clearStoredMemory();
 		Paths.clearUnusedMemory();
+		
+		#if android
+                FlxG.android.preventDefaultKeys = [BACK];
+                #end
 
 		// Just to load a mod on start up if ya got one. For mods that change the menu music and bg
 		WeekData.loadTheFirstEnabledMod();
