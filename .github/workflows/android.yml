@@ -49,7 +49,7 @@ jobs:
           haxelib --quiet install flixel-tools
           haxelib --quiet install flixel-ui
           haxelib --quiet install hscript
-          haxelib --quiet install flixel-addons
+          haxelib --quiet install flixel-addons 3.0.0
           haxelib --quiet install hxCodec
           haxelib git linc_luajit https://github.com/Sirox228/linc_luajit.git
           haxelib git extension-androidtools https://github.com/MAJigsaw77/extension-androidtools.git
