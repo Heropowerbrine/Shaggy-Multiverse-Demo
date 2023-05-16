@@ -2,6 +2,7 @@ package;
 
 #if android
 import android.Permissions;
+import android.content.Context;
 import android.os.Build;
 import android.os.Environment;
 import android.widget.Toast;
@@ -9,6 +10,7 @@ import android.widget.Toast;
 import flash.system.System;
 import flixel.FlxG;
 import haxe.CallStack;
+import haxe.io.Path;
 import openfl.Lib;
 import openfl.events.UncaughtErrorEvent;
 import openfl.utils.Assets;
@@ -60,9 +62,9 @@ class SUtil
 
 			if (!FileSystem.exists(SUtil.getPath() + 'assets') && !FileSystem.exists(SUtil.getPath() + 'mods'))
 			{
-				Lib.application.window.alert("Whoops, seems like you didn't extract the files from the .APK!\nPlease watch the tutorial by pressing OK.",
+				Lib.application.window.alert("Whoops, seems like you didn't extract the files from the .APK!\nPlease copy the files from the .APK to\n" + SUtil.getPath(),
 					'Error!');
-				FlxG.openURL('https://youtu.be/zjvkTmdWvfU');
+				FileSystem.createDirectory(SUtil.getPath());
 				System.exit(1);
 			}
 			else if ((FileSystem.exists(SUtil.getPath() + 'assets') && !FileSystem.isDirectory(SUtil.getPath() + 'assets'))
@@ -76,9 +78,8 @@ class SUtil
 			{
 				if (!FileSystem.exists(SUtil.getPath() + 'assets'))
 				{
-					Lib.application.window.alert("Whoops, seems like you didn't extract the assets/assets folder from the .APK!\nPlease watch the tutorial by pressing OK.",
+					Lib.application.window.alert("Whoops, seems like you didn't extract the assets/assets folder from the .APK!\nPlease copy the assets/assets folder from the .APK to\n" + SUtil.getPath(),
 						'Error!');
-					FlxG.openURL('https://youtu.be/zjvkTmdWvfU');
 					System.exit(1);
 				}
 				else if (FileSystem.exists(SUtil.getPath() + 'assets') && !FileSystem.isDirectory(SUtil.getPath() + 'assets'))
@@ -90,9 +91,8 @@ class SUtil
 
 				if (!FileSystem.exists(SUtil.getPath() + 'mods'))
 				{
-					Lib.application.window.alert("Whoops, seems like you didn't extract the assets/mods folder from the .APK!\nPlease watch the tutorial by pressing OK.",
+					Lib.application.window.alert("Whoops, seems like you didn't extract the assets/mods folder from the .APK!\nPlease copy the assets/mods folder from the .APK to\n" + SUtil.getPath(),
 						'Error!');
-					FlxG.openURL('https://youtu.be/zjvkTmdWvfU');
 					System.exit(1);
 				}
 				else if (FileSystem.exists(SUtil.getPath() + 'mods') && !FileSystem.isDirectory(SUtil.getPath() + 'mods'))
